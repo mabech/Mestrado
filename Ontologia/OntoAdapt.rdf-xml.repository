@@ -1,0 +1,17 @@
+[Dublin Core DL Redirect]
+http://daml.umbc.edu/ontologies/cobra/0.4/context
+http://daml.umbc.edu/ontologies/cobra/0.4/agent
+http://daml.umbc.edu/ontologies/cobra/0.4/action
+http://daml.umbc.edu/ontologies/cobra/0.4/time-basic
+http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock
+http://daml.umbc.edu/ontologies/cobra/0.4/device
+http://daml.umbc.edu/ontologies/cobra/0.4/location
+http://daml.umbc.edu/ontologies/cobra/0.4/space-basic
+http://daml.umbc.edu/ontologies/cobra/0.4/foaf-basic
+http://daml.umbc.edu/ontologies/cobra/0.4/personal-device
+http://daml.umbc.edu/ontologies/cobra/0.4/role
+http://daml.umbc.edu/ontologies/cobra/0.4/meeting
+http://daml.umbc.edu/ontologies/cobra/0.4/powerpoint
+http://daml.umbc.edu/ontologies/cobra/0.4/document
+http://daml.umbc.edu/ontologies/cobra/0.4/rcc-basic
+http://daml.umbc.edu/ontologies/cobra/0.4/place

@@ -1,0 +1,81 @@
+Prefix(:=<http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock>
+Annotation(rdfs:label "COBRA-ONT Calendar/Clock Ontology")
+Annotation(owl:versionInfo "0.4")
+Annotation(rdfs:comment "
+      An ontology for describing calendar and clock time. 
+
+      Parts of this ontology are adopted from the time-entry ontology
+      developed by Feng Pan and Jerry R. Hobbs (USC/ISI) and DAML-Time.
+    ")
+
+Declaration(Class(:CalendarDescription))
+AnnotationAssertion(rdfs:label :CalendarDescription "CalendarDescription")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl> :CalendarDescription "CalendarDescriptions")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg> :CalendarDescription "CalendarDescription")
+SubClassOf(:CalendarDescription DataMaxCardinality(1 :dateOfMonth))
+SubClassOf(:CalendarDescription DataMaxCardinality(1 :month))
+SubClassOf(:CalendarDescription DataMaxCardinality(1 :year))
+Declaration(Class(:ClockDescription))
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg> :ClockDescription "ClockDescription")
+AnnotationAssertion(rdfs:label :ClockDescription "ClockDescription")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl> :ClockDescription "ClockDescriptions")
+SubClassOf(:ClockDescription DataMaxCardinality(1 :hourOfDay))
+SubClassOf(:ClockDescription DataMaxCardinality(1 :minute))
+SubClassOf(:ClockDescription DataMaxCardinality(1 :second))
+Declaration(DataProperty(:dateOfMonth))
+AnnotationAssertion(rdfs:label :dateOfMonth "dateOfMonth")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :dateOfMonth "dateOfMonths")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :dateOfMonth "dateOfMonth")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :dateOfMonth "dateOfMonthed")
+DataPropertyRange(:dateOfMonth xsd:gDay)
+Declaration(DataProperty(:hourOfDay))
+AnnotationAssertion(rdfs:comment :hourOfDay "
+      A non-negative integer that represents the hour of the day in
+      the 24-hour clock (e.g., at 10:04:32 PM, the hourOfDay is 10)
+    ")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :hourOfDay "hourOfDay")
+AnnotationAssertion(rdfs:label :hourOfDay "hourOfDay")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :hourOfDay "hourOfDays")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :hourOfDay "hourOfDayed")
+DataPropertyRange(:hourOfDay xsd:nonNegativeInteger)
+Declaration(DataProperty(:minute))
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :minute "minute")
+AnnotationAssertion(rdfs:label :minute "minute")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :minute "minutes")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :minute "minuted")
+AnnotationAssertion(rdfs:comment :minute "
+      A non-negative integer that represents the minute within the
+      hour (e.g., at 10:02:23 PM, the minute is 2).
+    ")
+DataPropertyRange(:minute xsd:nonNegativeInteger)
+Declaration(DataProperty(:month))
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :month "months")
+AnnotationAssertion(rdfs:label :month "month")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :month "monthed")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :month "month")
+DataPropertyRange(:month xsd:gMonth)
+Declaration(DataProperty(:second))
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :second "seconded")
+AnnotationAssertion(rdfs:comment :second "
+      A non-negative integer that represents the second within the
+      minute (e.g., at 10:02:23 PM, the minute is 23).
+    ")
+AnnotationAssertion(rdfs:label :second "second")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :second "seconds")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :second "second")
+DataPropertyRange(:second xsd:nonNegativeInteger)
+Declaration(DataProperty(:year))
+AnnotationAssertion(rdfs:label :year "year")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg> :year "years")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg> :year "yeared")
+AnnotationAssertion(<http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl> :year "year")
+DataPropertyRange(:year xsd:gYear)
+)

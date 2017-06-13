@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://slor.sourceforge.net/ontology/slor.owl" uri="http://slor.sourceforge.net/ontology/lom.owl"/>
+    <uri id="Imports Wizard Entry" name="http://daml.umbc.edu/ontologies/cobra/0.4/place" uri="http://daml.umbc.edu/ontologies/cobra/0.4/place"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1388230727244" name="duplicate:http://www.owl-ontologies.com/OntoAdapt2.owl" uri="OntoAdapt.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1388230727244" name="duplicate:http://www.owl-ontologies.com/OntoAdapt2.owl" uri="OntoAdapt.rdf-xml.owl"/>
+    </group>
+</catalog>

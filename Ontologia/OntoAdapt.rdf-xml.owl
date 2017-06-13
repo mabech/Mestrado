@@ -1,0 +1,1989 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns="http://www.owl-ontologies.com/OntoAdapt2.owl#"
+    xmlns:p2="http://daml.umbc.edu/ontologies/cobra/0.4/place#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:p1="http://daml.umbc.edu/ontologies/cobra/0.4/context#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://www.owl-ontologies.com/OntoAdapt2.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/3.3/swrla.owl"/>
+    <owl:imports rdf:resource="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl"/>
+    <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/place"/>
+    <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/foaf-basic"/>
+    <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/location"/>
+    <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/device"/>
+    <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/context"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="MediaType">
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaTypes</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaType</ace_lexicon:CN_sg>
+  </owl:Class>
+  <owl:Class rdf:ID="Place">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Context"/>
+    </rdfs:subClassOf>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Place</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Places</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:ID="Keyword">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Keyword</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Keywords</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Context"/>
+    </rdfs:subClassOf>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Activities</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Activity</ace_lexicon:CN_sg>
+  </owl:Class>
+  <owl:Class rdf:about="#Context">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Context</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Contexts</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:ID="ChosenObject">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ChosenObject</ace_lexicon:CN_sg>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Student"/>
+    </owl:disjointWith>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ChosenObjects</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:ID="LearningObject">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningObject</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningObjects</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:about="#Student">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Student</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Students</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:Class rdf:ID="Device">
+    <owl:disjointWith rdf:resource="#Student"/>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Devices</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device</ace_lexicon:CN_sg>
+  </owl:Class>
+  <owl:Class rdf:ID="LearningStyle">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyles</ace_lexicon:CN_pl>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasMediaType">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasMediaTypes</ace_lexicon:TV_sg>
+    <rdfs:range rdf:resource="#MediaType"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasMediaTyped</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasMediaType</ace_lexicon:TV_pl>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDevice">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDevice</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDeviced</ace_lexicon:TV_vbg>
+    <rdfs:range rdf:resource="#Device"/>
+    <rdfs:domain rdf:resource="#Student"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDevices</ace_lexicon:TV_sg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasActivity">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasActivities</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasActivity</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasActivitied</ace_lexicon:TV_vbg>
+    <rdfs:range rdf:resource="#Activity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isLearningStyleof">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isLearningStyleof</ace_lexicon:TV_pl>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasLearningStyle"/>
+    </owl:inverseOf>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isLearningStyleofs</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isLearningStyleofed</ace_lexicon:TV_vbg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isKeywordOf">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isKeywordOfs</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isKeywordOf</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isKeywordOfed</ace_lexicon:TV_vbg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasLearningStyle">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLearningStyled</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLearningStyles</ace_lexicon:TV_sg>
+    <rdfs:range rdf:resource="#LearningStyle"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLearningStyle</ace_lexicon:TV_pl>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Name">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Name</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Names</ace_lexicon:TV_sg>
+    <rdfs:domain rdf:resource="#Student"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Named</ace_lexicon:TV_vbg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasStudentMidiaPreference">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasStudentMidiaPreferenced</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasStudentMidiaPreference</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasStudentMidiaPreferences</ace_lexicon:TV_sg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLOMediaType">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLOMediaTyped</ace_lexicon:TV_vbg>
+    <rdfs:range rdf:resource="#MediaType"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLOMediaTypes</ace_lexicon:TV_sg>
+    <rdfs:domain rdf:resource="#LearningObject"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasLOMediaType</ace_lexicon:TV_pl>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasKeyword">
+    <owl:inverseOf rdf:resource="#isKeywordOf"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasKeywords</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasKeyworded</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasKeyword</ace_lexicon:TV_pl>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasContext">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasContexted</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasContexts</ace_lexicon:TV_sg>
+    <rdfs:domain rdf:resource="#Student"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasContext</ace_lexicon:TV_pl>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDificultyKeyword">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDificultyKeyworded</ace_lexicon:TV_vbg>
+    <rdfs:range rdf:resource="#Keyword"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDificultyKeyword</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDificultyKeywords</ace_lexicon:TV_sg>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPlace">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasPlaced</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasPlace</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasPlaces</ace_lexicon:TV_sg>
+    <rdfs:range rdf:resource="#Place"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasObjectChosenToStudent">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasObjectChosenToStudent</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasObjectChosenToStudents</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasObjectChosenToStudented</ace_lexicon:TV_vbg>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendLowBattery">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowBatteried</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowBattery</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowBatteries</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendHighConnections">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighConnections</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighConnectionsed</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighConnectionses</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendToSmartphone">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToSmartphoned</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToSmartphones</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToSmartphone</ace_lexicon:TV_pl>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Device_BatteryNivel">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_BatteryNiveled</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_BatteryNivels</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_BatteryNivel</ace_lexicon:TV_pl>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendHighBattery">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighBattery</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighBatteried</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendHighBatteries</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DeviceNetConnection">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceNetConnectioned</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceNetConnection</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceNetConnections</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendToPlayer">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToPlayered</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToPlayer</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToPlayers</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Student_Idiom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Student_Idiomed</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Student_Idiom</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Student_Idioms</ace_lexicon:TV_sg>
+    <rdfs:domain rdf:resource="#Student"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Device_Size">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_Size</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_Sizes</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Device_Sized</ace_lexicon:TV_vbg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Model">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Model</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Modeled</ace_lexicon:TV_vbg>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Models</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="kw">
+    <rdfs:domain rdf:resource="#Keyword"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kws</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kw</ace_lexicon:TV_pl>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kwed</ace_lexicon:TV_vbg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="MediaLearningStyleType">
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Documents</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Presentation</rdf:first>
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >Video</rdf:first>
+              </rdf:rest>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Audio</rdf:first>
+        </owl:oneOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Tipo de midia compativel com o tipo de estilo de aprendizagem do aluno
+    &lt;/p&gt;</rdfs:comment>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaLearningStyleTypes</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaLearningStyleTyped</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaLearningStyleType</ace_lexicon:TV_pl>
+    <rdfs:domain rdf:resource="#LearningObject"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendToDesktop">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToDesktoped</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToDesktops</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToDesktop</ace_lexicon:TV_pl>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendLowConnections">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowConnectionsed</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowConnections</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendLowConnectionses</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DificultyKW">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DificultyKWs</ace_lexicon:TV_sg>
+    <rdfs:comment xml:lang="pt">&lt;p style="margin-top: 0"&gt;
+      Palavra-chave que identifica o assunto que o aluno possui dificuldade
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DificultyKW</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DificultyKWed</ace_lexicon:TV_vbg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DeviceType">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceTypes</ace_lexicon:TV_sg>
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Desktop</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >player</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >tablet</rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >smartphone</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceTyped</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceType</ace_lexicon:TV_pl>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="MediaTypeFormats">
+    <rdfs:domain rdf:resource="#MediaType"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaTypeFormatsed</ace_lexicon:TV_vbg>
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >doc</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >mp3</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >pdf</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ppt</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >wmv</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >mp4</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+        </owl:oneOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaTypeFormats</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MediaTypeFormatses</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="LO_Size">
+    <rdfs:domain rdf:resource="#LearningObject"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Sizes</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Size</ace_lexicon:TV_pl>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Sized</ace_lexicon:TV_vbg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="CanSendToTablet">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToTableted</ace_lexicon:TV_vbg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToTablet</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CanSendToTablets</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="LearningObjectFormat">
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningObjectFormated</ace_lexicon:TV_vbg>
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >pdf</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ppt</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >wmf</rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >txt</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >mp3</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >flv</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >doc</rdf:first>
+        </owl:oneOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#LearningObject"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningObjectFormat</ace_lexicon:TV_pl>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Formato (extens&amp;#227;o) do Objeto de Aprendizagem
+    &lt;/p&gt;</rdfs:comment>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningObjectFormats</ace_lexicon:TV_sg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DeviceSupportedFormats">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceSupportedFormatses</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceSupportedFormats</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceSupportedFormatsed</ace_lexicon:TV_vbg>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="LO_Idiom">
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Idioms</ace_lexicon:TV_sg>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Idiom</ace_lexicon:TV_pl>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_Idiomed</ace_lexicon:TV_vbg>
+    <rdfs:domain rdf:resource="#LearningObject"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="DeviceName">
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceName</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceNames</ace_lexicon:TV_sg>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceNamed</ace_lexicon:TV_vbg>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:DatatypeProperty>
+  <owl:InverseFunctionalProperty rdf:ID="isOwnerOf">
+    <rdfs:domain rdf:resource="#Device"/>
+    <ace_lexicon:TV_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isOwnerOf</ace_lexicon:TV_pl>
+    <ace_lexicon:TV_vbg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isOwnerOfed</ace_lexicon:TV_vbg>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ace_lexicon:TV_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isOwnerOfs</ace_lexicon:TV_sg>
+    <owl:inverseOf rdf:resource="#hasDevice"/>
+  </owl:InverseFunctionalProperty>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <owl:NamedIndividual rdf:ID="ActivityStationary">
+        <hasMediaType>
+          <MediaType rdf:ID="Audio">
+            <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToTablet>
+            <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToSmartphone>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToDesktop>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Audio</ace_lexicon:PN_sg>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >mp3</MediaTypeFormats>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowConnections>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToPlayer>
+          </MediaType>
+        </hasMediaType>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="Animations">
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <rdf:type rdf:resource="#MediaType"/>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Animations</ace_lexicon:PN_sg>
+          </owl:NamedIndividual>
+        </hasMediaType>
+        <hasMediaType>
+          <MediaType rdf:ID="Simulations">
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowBattery>
+            <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToDesktop>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Simulations</ace_lexicon:PN_sg>
+            <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendToTablet>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendToPlayer>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendToSmartphone>
+          </MediaType>
+        </hasMediaType>
+        <hasMediaType>
+          <MediaType rdf:ID="Video">
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToTablet>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToSmartphone>
+            <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToDesktop>
+            <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >wmv</MediaTypeFormats>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Video</ace_lexicon:PN_sg>
+            <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendToPlayer>
+            <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >mp4</MediaTypeFormats>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowBattery>
+          </MediaType>
+        </hasMediaType>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="WebPages">
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >WebPages</ace_lexicon:PN_sg>
+            <rdf:type rdf:resource="#MediaType"/>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowConnections>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+          </owl:NamedIndividual>
+        </hasMediaType>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="Forums">
+            <rdf:type rdf:resource="#MediaType"/>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Forums</ace_lexicon:PN_sg>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowBattery>
+          </owl:NamedIndividual>
+        </hasMediaType>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="Chats">
+            <rdf:type rdf:resource="#MediaType"/>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Chats</ace_lexicon:PN_sg>
+            <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToDesktop>
+            <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToTablet>
+            <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToPlayer>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToSmartphone>
+          </owl:NamedIndividual>
+        </hasMediaType>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="Wikis">
+            <rdf:type rdf:resource="#MediaType"/>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Wikis</ace_lexicon:PN_sg>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowConnections>
+          </owl:NamedIndividual>
+        </hasMediaType>
+        <hasMediaType>
+          <MediaType rdf:ID="eBooks">
+            <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToDesktop>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToTablet>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowConnections>
+            <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendToSmartphone>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >eBooks</ace_lexicon:PN_sg>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendToPlayer>
+          </MediaType>
+        </hasMediaType>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ActivityStationary</ace_lexicon:PN_sg>
+        <rdf:type rdf:resource="#Activity"/>
+        <hasMediaType>
+          <owl:NamedIndividual rdf:ID="Presentations">
+            <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >ppt</MediaTypeFormats>
+            <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >pdf</MediaTypeFormats>
+            <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighConnections>
+            <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendHighBattery>
+            <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >True</CanSendLowBattery>
+            <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Presentations</ace_lexicon:PN_sg>
+            <rdf:type rdf:resource="#MediaType"/>
+            <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >False</CanSendLowConnections>
+          </owl:NamedIndividual>
+        </hasMediaType>
+      </owl:NamedIndividual>
+      <owl:NamedIndividual rdf:ID="ActivityWalking">
+        <rdf:type rdf:resource="#Activity"/>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ActivityWalking</ace_lexicon:PN_sg>
+      </owl:NamedIndividual>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <swrl:Imp>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1>
+              <swrl:Variable rdf:about="urn:swrl#OBJ"/>
+            </swrl:argument1>
+            <swrl:classPredicate rdf:resource="#ChosenObject"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#hasObjectChosenToStudent"/>
+                <swrl:argument1>
+                  <swrl:Variable rdf:about="urn:swrl#Aluno"/>
+                </swrl:argument1>
+                <swrl:argument2 rdf:resource="urn:swrl#OBJ"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:head>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#LearningObject"/>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:classPredicate rdf:resource="#Student"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument2>
+                              <swrl:Variable rdf:about="urn:swrl#KW"/>
+                            </swrl:argument2>
+                            <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                            <swrl:propertyPredicate rdf:resource="#hasDificultyKeyword"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:propertyPredicate rdf:resource="#hasLOMediaType"/>
+                                    <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                    <swrl:argument2>
+                                      <swrl:Variable rdf:about="urn:swrl#Media"/>
+                                    </swrl:argument2>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                        <swrl:argument2>
+                                          <swrl:Variable rdf:about="urn:swrl#Style"/>
+                                        </swrl:argument2>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:first>
+                                          <swrl:IndividualPropertyAtom>
+                                            <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                            <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                          </swrl:IndividualPropertyAtom>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:rest>
+                                              <swrl:AtomList>
+                                                <rdf:first>
+                                                  <swrl:IndividualPropertyAtom>
+                                                    <swrl:propertyPredicate rdf:resource="#hasStudentMidiaPreference"/>
+                                                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                                  </swrl:IndividualPropertyAtom>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                  <swrl:AtomList>
+                                                    <rdf:first>
+                                                      <swrl:DatavaluedPropertyAtom>
+                                                        <swrl:argument2
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >True</swrl:argument2>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                        <swrl:propertyPredicate rdf:resource="#CanSendHighBattery"/>
+                                                      </swrl:DatavaluedPropertyAtom>
+                                                    </rdf:first>
+                                                    <rdf:rest>
+                                                      <swrl:AtomList>
+                                                        <rdf:rest>
+                                                          <swrl:AtomList>
+                                                            <rdf:first>
+                                                              <swrl:DatavaluedPropertyAtom>
+    <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</swrl:argument2>
+    <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+    <swrl:propertyPredicate rdf:resource="#CanSendToSmartphone"/>
+                                                              </swrl:DatavaluedPropertyAtom>
+                                                            </rdf:first>
+                                                            <rdf:rest>
+                                                              <swrl:AtomList>
+    <rdf:rest>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:DatavaluedPropertyAtom>
+            <swrl:propertyPredicate rdf:resource="#DeviceType"/>
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >smarphone</swrl:argument2>
+            <swrl:argument1>
+              <swrl:Variable rdf:about="urn:swrl#Device"/>
+            </swrl:argument1>
+          </swrl:DatavaluedPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </rdf:rest>
+    <rdf:first>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+        <swrl:propertyPredicate rdf:resource="#DeviceNetConnection"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WiFi</swrl:argument2>
+      </swrl:DatavaluedPropertyAtom>
+    </rdf:first>                                              </swrl:AtomList>
+                                                            </rdf:rest>
+                                                          </swrl:AtomList>
+                                                        </rdf:rest>
+                                                        <rdf:first>
+                                                          <swrl:DatavaluedPropertyAtom>
+                                                            <swrl:propertyPredicate rdf:resource="#CanSendHighConnections"/>
+                                                            <swrl:argument2
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >True</swrl:argument2>
+                                                            <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                          </swrl:DatavaluedPropertyAtom>
+                                                        </rdf:first>
+                                                      </swrl:AtomList>
+                                                    </rdf:rest>
+                                                  </swrl:AtomList>
+                                                </rdf:rest>
+                                              </swrl:AtomList>
+                                            </rdf:rest>
+                                            <rdf:first>
+                                              <swrl:IndividualPropertyAtom>
+                                                <swrl:argument1>
+                                                  <swrl:Variable rdf:about="urn:swrl#Act"/>
+                                                </swrl:argument1>
+                                                <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                                <swrl:propertyPredicate rdf:resource="#hasMediaType"/>
+                                              </swrl:IndividualPropertyAtom>
+                                            </rdf:first>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasKeyword"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument2 rdf:resource="urn:swrl#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                        <swrl:propertyPredicate rdf:resource="#hasDevice"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:propertyPredicate rdf:resource="#hasActivity"/>
+                    <swrl:argument2 rdf:resource="urn:swrl#Act"/>
+                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+  </swrl:Imp>
+  <owl:NamedIndividual rdf:ID="Dificulty_Processos">
+    <DificultyKW rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Processos</DificultyKW>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dificulty_Processos</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Sensitive">
+    <rdf:type rdf:resource="#LearningStyle"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Sensitive</ace_lexicon:PN_sg>
+    <hasMediaType rdf:resource="#Wikis"/>
+    <hasMediaType>
+      <owl:NamedIndividual rdf:ID="Pictures">
+        <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighConnections>
+        <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighBattery>
+        <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendLowBattery>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Pictures</ace_lexicon:PN_sg>
+        <rdf:type rdf:resource="#MediaType"/>
+        <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendLowConnections>
+      </owl:NamedIndividual>
+    </hasMediaType>
+    <hasMediaType>
+      <owl:NamedIndividual rdf:ID="Graphics">
+        <rdf:type rdf:resource="#MediaType"/>
+        <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >False</CanSendLowConnections>
+        <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighBattery>
+        <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighConnections>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Graphics</ace_lexicon:PN_sg>
+      </owl:NamedIndividual>
+    </hasMediaType>
+    <hasMediaType rdf:resource="#Animations"/>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/device#MemoryUsageType">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MemoryUsageType</ace_lexicon:CN_sg>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MemoryUsageTypes</ace_lexicon:CN_pl>
+  </rdf:Description>
+  <swrl:Imp>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+            <swrl:classPredicate rdf:resource="#LearningObject"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:propertyPredicate rdf:resource="#hasActivity"/>
+                    <swrl:argument2 rdf:resource="urn:swrl#Act"/>
+                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                            <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                            <swrl:propertyPredicate rdf:resource="#hasDificultyKeyword"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasKeyword"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                        <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:first>
+                                              <swrl:IndividualPropertyAtom>
+                                                <swrl:propertyPredicate rdf:resource="#hasMediaType"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#Act"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                              </swrl:IndividualPropertyAtom>
+                                            </rdf:first>
+                                            <rdf:rest>
+                                              <swrl:AtomList>
+                                                <rdf:first>
+                                                  <swrl:IndividualPropertyAtom>
+                                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                                    <swrl:propertyPredicate rdf:resource="#hasStudentMidiaPreference"/>
+                                                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                                  </swrl:IndividualPropertyAtom>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                  <swrl:AtomList>
+                                                    <rdf:first>
+                                                      <swrl:DatavaluedPropertyAtom>
+                                                        <swrl:propertyPredicate rdf:resource="#CanSendLowConnections"/>
+                                                        <swrl:argument2
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >True</swrl:argument2>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                      </swrl:DatavaluedPropertyAtom>
+                                                    </rdf:first>
+                                                    <rdf:rest>
+                                                      <swrl:AtomList>
+                                                        <rdf:rest>
+                                                          <swrl:AtomList>
+                                                            <rdf:rest>
+                                                              <swrl:AtomList>
+    <rdf:first>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >tablet</swrl:argument2>
+        <swrl:propertyPredicate rdf:resource="#DeviceType"/>
+      </swrl:DatavaluedPropertyAtom>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                              </swrl:AtomList>
+                                                            </rdf:rest>
+                                                            <rdf:first>
+                                                              <swrl:DatavaluedPropertyAtom>
+    <swrl:propertyPredicate rdf:resource="#DeviceNetConnection"/>
+    <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+    <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3G</swrl:argument2>                                      </swrl:DatavaluedPropertyAtom>
+                                                            </rdf:first>
+                                                          </swrl:AtomList>
+                                                        </rdf:rest>
+                                                        <rdf:first>
+                                                          <swrl:DatavaluedPropertyAtom>
+                                                            <swrl:propertyPredicate rdf:resource="#CanSendToTablet"/>
+                                                            <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                            <swrl:argument2
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >True</swrl:argument2>
+                                                          </swrl:DatavaluedPropertyAtom>
+                                                        </rdf:first>
+                                                      </swrl:AtomList>
+                                                    </rdf:rest>
+                                                  </swrl:AtomList>
+                                                </rdf:rest>
+                                              </swrl:AtomList>
+                                            </rdf:rest>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                        <rdf:first>
+                                          <swrl:IndividualPropertyAtom>
+                                            <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                            <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                          </swrl:IndividualPropertyAtom>
+                                        </rdf:first>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:propertyPredicate rdf:resource="#hasLOMediaType"/>
+                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                    <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#hasDevice"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:classPredicate rdf:resource="#Student"/>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#ChosenObject"/>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:propertyPredicate rdf:resource="#hasObjectChosenToStudent"/>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:argument2 rdf:resource="urn:swrl#OBJ"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/document#FileSizeDescription">
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeDescription</ace_lexicon:CN_sg>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeDescriptions</ace_lexicon:CN_pl>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </rdf:Description>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <owl:NamedIndividual rdf:ID="ActivityAutomotive">
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ActivityAutomotive</ace_lexicon:PN_sg>
+        <rdf:type rdf:resource="#Activity"/>
+        <hasMediaType rdf:resource="#Audio"/>
+      </owl:NamedIndividual>
+      <owl:NamedIndividual rdf:about="#ActivityWalking"/>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/foaf-basic#Person">
+    <owl:equivalentClass rdf:resource="#Student"/>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Persons</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Person</ace_lexicon:CN_sg>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="atTrain">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >atTrain</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#Place"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Broadcasts">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Broadcasts</ace_lexicon:PN_sg>
+    <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToSmartphone>
+    <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >False</CanSendLowConnections>
+    <rdf:type rdf:resource="#MediaType"/>
+    <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendHighConnections>
+    <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToPlayer>
+    <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToTablet>
+    <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToDesktop>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="atSchool">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >atSchool</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#Place"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Z">
+    <rdf:type rdf:resource="#Student"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Z</ace_lexicon:PN_sg>
+    <hasDevice>
+      <owl:NamedIndividual rdf:ID="Android">
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Android</ace_lexicon:PN_sg>
+        <DeviceSupportedFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ppt</DeviceSupportedFormats>
+        <DeviceSupportedFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >pdf</DeviceSupportedFormats>
+        <Device_BatteryNivel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Bad</Device_BatteryNivel>
+        <Model rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Nexus 4</Model>
+        <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >smartphone</DeviceType>
+        <rdf:type rdf:resource="#Device"/>
+      </owl:NamedIndividual>
+    </hasDevice>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/device#DisplayScreen">
+    <rdfs:subClassOf rdf:resource="#Device"/>
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DisplayScreens</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DisplayScreen</ace_lexicon:CN_sg>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="Y">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Y</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#Student"/>
+    <hasLearningStyle>
+      <owl:NamedIndividual rdf:ID="LearningStyle_Active">
+        <rdf:type rdf:resource="#LearningStyle"/>
+        <hasMediaType rdf:resource="#Wikis"/>
+        <hasMediaType rdf:resource="#Forums"/>
+        <hasMediaType rdf:resource="#Chats"/>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >LearningStyle_Active</ace_lexicon:PN_sg>
+      </owl:NamedIndividual>
+    </hasLearningStyle>
+    <hasDificultyKeyword>
+      <owl:NamedIndividual rdf:ID="Keyword_while">
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Keyword_while</ace_lexicon:PN_sg>
+        <kw rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >while</kw>
+        <rdf:type rdf:resource="#Keyword"/>
+      </owl:NamedIndividual>
+    </hasDificultyKeyword>
+    <hasActivity rdf:resource="#ActivityStationary"/>
+    <hasDevice>
+      <owl:NamedIndividual rdf:ID="iPhone">
+        <DeviceName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >iPhone's Mah</DeviceName>
+        <DeviceSupportedFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ppt</DeviceSupportedFormats>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >iPhone</ace_lexicon:PN_sg>
+        <DeviceNetConnection rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >3G</DeviceNetConnection>
+        <rdf:type rdf:resource="#Device"/>
+        <Model rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >iPhone 3GS</Model>
+        <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >smartphone</DeviceType>
+      </owl:NamedIndividual>
+    </hasDevice>
+    <hasStudentMidiaPreference rdf:resource="#Video"/>
+  </owl:NamedIndividual>
+  <swrl:Imp>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#LearningObject"/>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:argument2 rdf:resource="urn:swrl#Act"/>
+                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                    <swrl:propertyPredicate rdf:resource="#hasActivity"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:argument2 rdf:resource="urn:swrl#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                        <swrl:propertyPredicate rdf:resource="#hasDevice"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:propertyPredicate rdf:resource="#hasDificultyKeyword"/>
+                            <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                            <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="#hasKeyword"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:propertyPredicate rdf:resource="#hasLOMediaType"/>
+                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                    <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:first>
+                                          <swrl:IndividualPropertyAtom>
+                                            <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                            <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                          </swrl:IndividualPropertyAtom>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:first>
+                                              <swrl:IndividualPropertyAtom>
+                                                <swrl:propertyPredicate rdf:resource="#hasMediaType"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#Act"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                              </swrl:IndividualPropertyAtom>
+                                            </rdf:first>
+                                            <rdf:rest>
+                                              <swrl:AtomList>
+                                                <rdf:first>
+                                                  <swrl:IndividualPropertyAtom>
+                                                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                                    <swrl:propertyPredicate rdf:resource="#hasStudentMidiaPreference"/>
+                                                  </swrl:IndividualPropertyAtom>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                  <swrl:AtomList>
+                                                    <rdf:rest>
+                                                      <swrl:AtomList>
+                                                        <rdf:first>
+                                                          <swrl:DatavaluedPropertyAtom>
+                                                            <swrl:argument2
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >True</swrl:argument2>
+                                                            <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                            <swrl:propertyPredicate rdf:resource="#CanSendToSmartphone"/>
+                                                          </swrl:DatavaluedPropertyAtom>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                          <swrl:AtomList>
+                                                            <rdf:rest>
+                                                              <swrl:AtomList>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        > smartphone</swrl:argument2>
+        <swrl:propertyPredicate rdf:resource="#DeviceType"/>
+      </swrl:DatavaluedPropertyAtom>
+    </rdf:first>                                              </swrl:AtomList>
+                                                            </rdf:rest>
+                                                            <rdf:first>
+                                                              <swrl:DatavaluedPropertyAtom>
+    <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >3G</swrl:argument2>
+    <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+    <swrl:propertyPredicate rdf:resource="#DeviceNetConnection"/>
+                                                              </swrl:DatavaluedPropertyAtom>
+                                                            </rdf:first>
+                                                          </swrl:AtomList>
+                                                        </rdf:rest>
+                                                      </swrl:AtomList>
+                                                    </rdf:rest>
+                                                    <rdf:first>
+                                                      <swrl:DatavaluedPropertyAtom>
+                                                        <swrl:propertyPredicate rdf:resource="#CanSendLowConnections"/>
+                                                        <swrl:argument2
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >True</swrl:argument2>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                      </swrl:DatavaluedPropertyAtom>
+                                                    </rdf:first>
+                                                  </swrl:AtomList>
+                                                </rdf:rest>
+                                              </swrl:AtomList>
+                                            </rdf:rest>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                  </swrl:AtomList>
+                </rdf:rest>
+              </swrl:AtomList>
+            </rdf:rest>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:classPredicate rdf:resource="#Student"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+            <swrl:classPredicate rdf:resource="#ChosenObject"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument2 rdf:resource="urn:swrl#OBJ"/>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:propertyPredicate rdf:resource="#hasObjectChosenToStudent"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+          </swrl:AtomList>
+        </rdf:rest>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <owl:NamedIndividual rdf:ID="LO_2">
+    <hasLOMediaType rdf:resource="#Simulations"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_2</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#LearningObject"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Sequencial">
+    <hasMediaType>
+      <owl:NamedIndividual rdf:ID="SlideShow">
+        <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >False</CanSendLowConnections>
+        <rdf:type rdf:resource="#MediaType"/>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >SlideShow</ace_lexicon:PN_sg>
+        <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighBattery>
+        <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >False</CanSendLowBattery>
+        <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >True</CanSendHighConnections>
+      </owl:NamedIndividual>
+    </hasMediaType>
+    <hasMediaType rdf:resource="#Audio"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Sequencial</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#LearningStyle"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="ActivityRunning">
+    <rdf:type rdf:resource="#Activity"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ActivityRunning</ace_lexicon:PN_sg>
+    <hasMediaType rdf:resource="#Audio"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Global">
+    <hasMediaType rdf:resource="#Wikis"/>
+    <hasMediaType rdf:resource="#Forums"/>
+    <hasMediaType rdf:resource="#Chats"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Global</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#LearningStyle"/>
+  </owl:NamedIndividual>
+  <swrl:Imp>
+    <swrl:body>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:ClassAtom>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:classPredicate rdf:resource="#Student"/>
+              </swrl:ClassAtom>
+            </rdf:first>
+            <rdf:rest>
+              <swrl:AtomList>
+                <rdf:rest>
+                  <swrl:AtomList>
+                    <rdf:rest>
+                      <swrl:AtomList>
+                        <rdf:first>
+                          <swrl:IndividualPropertyAtom>
+                            <swrl:propertyPredicate rdf:resource="#hasDificultyKeyword"/>
+                            <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                            <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                          </swrl:IndividualPropertyAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                          <swrl:AtomList>
+                            <rdf:first>
+                              <swrl:IndividualPropertyAtom>
+                                <swrl:argument2 rdf:resource="urn:swrl#KW"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                <swrl:propertyPredicate rdf:resource="#hasKeyword"/>
+                              </swrl:IndividualPropertyAtom>
+                            </rdf:first>
+                            <rdf:rest>
+                              <swrl:AtomList>
+                                <rdf:first>
+                                  <swrl:IndividualPropertyAtom>
+                                    <swrl:propertyPredicate rdf:resource="#hasLOMediaType"/>
+                                    <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                  </swrl:IndividualPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                  <swrl:AtomList>
+                                    <rdf:rest>
+                                      <swrl:AtomList>
+                                        <rdf:first>
+                                          <swrl:IndividualPropertyAtom>
+                                            <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                            <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+                                          </swrl:IndividualPropertyAtom>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                          <swrl:AtomList>
+                                            <rdf:rest>
+                                              <swrl:AtomList>
+                                                <rdf:first>
+                                                  <swrl:IndividualPropertyAtom>
+                                                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                                    <swrl:argument2 rdf:resource="urn:swrl#Media"/>
+                                                    <swrl:propertyPredicate rdf:resource="#hasStudentMidiaPreference"/>
+                                                  </swrl:IndividualPropertyAtom>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                  <swrl:AtomList>
+                                                    <rdf:first>
+                                                      <swrl:DatavaluedPropertyAtom>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                        <swrl:propertyPredicate rdf:resource="#CanSendHighBattery"/>
+                                                        <swrl:argument2
+                                                         rdf:datatype=
+                                                        "http://www.w3.org/2001/XMLSchema#string"
+                                                        >True</swrl:argument2>
+                                                      </swrl:DatavaluedPropertyAtom>
+                                                    </rdf:first>
+                                                    <rdf:rest>
+                                                      <swrl:AtomList>
+                                                        <rdf:first>
+                                                          <swrl:DatavaluedPropertyAtom>
+                                                            <swrl:propertyPredicate rdf:resource="#CanSendHighConnections"/>
+                                                            <swrl:argument2
+                                                             rdf:datatype=
+                                                            "http://www.w3.org/2001/XMLSchema#string"
+                                                            >True</swrl:argument2>
+                                                            <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+                                                          </swrl:DatavaluedPropertyAtom>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                          <swrl:AtomList>
+                                                            <rdf:rest>
+                                                              <swrl:AtomList>
+    <rdf:first>
+      <swrl:DatavaluedPropertyAtom>
+        <swrl:propertyPredicate rdf:resource="#DeviceNetConnection"/>
+        <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+        <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WiFi</swrl:argument2>
+      </swrl:DatavaluedPropertyAtom>
+    </rdf:first>
+    <rdf:rest>
+      <swrl:AtomList>
+        <rdf:first>
+          <swrl:DatavaluedPropertyAtom>
+            <swrl:argument1 rdf:resource="urn:swrl#Device"/>
+            <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >tablet</swrl:argument2>
+            <swrl:propertyPredicate rdf:resource="#DeviceType"/>
+          </swrl:DatavaluedPropertyAtom>
+        </rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+      </swrl:AtomList>
+    </rdf:rest>                                               </swrl:AtomList>
+                                                            </rdf:rest>
+                                                            <rdf:first>
+                                                              <swrl:DatavaluedPropertyAtom>
+    <swrl:argument2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</swrl:argument2>
+    <swrl:argument1 rdf:resource="urn:swrl#Media"/>
+    <swrl:propertyPredicate rdf:resource="#CanSendToTablet"/> </swrl:DatavaluedPropertyAtom>
+                                                            </rdf:first>
+                                                          </swrl:AtomList>
+                                                        </rdf:rest>
+                                                      </swrl:AtomList>
+                                                    </rdf:rest>
+                                                  </swrl:AtomList>
+                                                </rdf:rest>
+                                              </swrl:AtomList>
+                                            </rdf:rest>
+                                            <rdf:first>
+                                              <swrl:IndividualPropertyAtom>
+                                                <swrl:argument2>
+                                                  <swrl:Variable rdf:about="urn:swrl#Midia"/>
+                                                </swrl:argument2>
+                                                <swrl:argument1 rdf:resource="urn:swrl#Act"/>
+                                                <swrl:propertyPredicate rdf:resource="#hasMediaType"/>
+                                              </swrl:IndividualPropertyAtom>
+                                            </rdf:first>
+                                          </swrl:AtomList>
+                                        </rdf:rest>
+                                      </swrl:AtomList>
+                                    </rdf:rest>
+                                    <rdf:first>
+                                      <swrl:IndividualPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="#hasLearningStyle"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#Style"/>
+                                      </swrl:IndividualPropertyAtom>
+                                    </rdf:first>
+                                  </swrl:AtomList>
+                                </rdf:rest>
+                              </swrl:AtomList>
+                            </rdf:rest>
+                          </swrl:AtomList>
+                        </rdf:rest>
+                      </swrl:AtomList>
+                    </rdf:rest>
+                    <rdf:first>
+                      <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="#hasDevice"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                      </swrl:IndividualPropertyAtom>
+                    </rdf:first>
+                  </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                  <swrl:IndividualPropertyAtom>
+                    <swrl:propertyPredicate rdf:resource="#hasActivity"/>
+                    <swrl:argument2 rdf:resource="urn:swrl#Act"/>
+                    <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                  </swrl:IndividualPropertyAtom>
+                </rdf:first>
+              </swrl:AtomList>
+            </rdf:rest>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+            <swrl:classPredicate rdf:resource="#LearningObject"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:body>
+    <swrl:head>
+      <swrl:AtomList>
+        <rdf:rest>
+          <swrl:AtomList>
+            <rdf:first>
+              <swrl:IndividualPropertyAtom>
+                <swrl:argument1 rdf:resource="urn:swrl#Aluno"/>
+                <swrl:argument2 rdf:resource="urn:swrl#OBJ"/>
+                <swrl:propertyPredicate rdf:resource="#hasObjectChosenToStudent"/>
+              </swrl:IndividualPropertyAtom>
+            </rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </swrl:AtomList>
+        </rdf:rest>
+        <rdf:first>
+          <swrl:ClassAtom>
+            <swrl:classPredicate rdf:resource="#ChosenObject"/>
+            <swrl:argument1 rdf:resource="urn:swrl#OBJ"/>
+          </swrl:ClassAtom>
+        </rdf:first>
+      </swrl:AtomList>
+    </swrl:head>
+  </swrl:Imp>
+  <owl:NamedIndividual rdf:ID="iPod">
+    <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >player</DeviceType>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >iPod</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#Device"/>
+    <DeviceSupportedFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pdf</DeviceSupportedFormats>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LO_03">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_03</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#LearningObject"/>
+    <hasLOMediaType rdf:resource="#Audio"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Dificulty_While">
+    <hasDificultyKeyword rdf:resource="#Keyword_while"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dificulty_While</ace_lexicon:PN_sg>
+    <DificultyKW rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >while</DificultyKW>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:AnnotationProperty rdf:about="http://attempto.ifi.uzh.ch/ace_lexicon#PN_sg"/>
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <owl:Class rdf:about="#Keyword"/>
+      <owl:Class rdf:about="#LearningObject"/>
+      <owl:Class rdf:about="#LearningStyle"/>
+      <owl:Class rdf:about="#MediaType"/>
+      <owl:Class rdf:about="#Place"/>
+      <owl:Class rdf:about="#Student"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/device#DisplayScreenResolution">
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DisplayScreenResolutions</ace_lexicon:CN_pl>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DisplayScreenResolution</ace_lexicon:CN_sg>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="X">
+    <hasDificultyKeyword rdf:resource="#Keyword_while"/>
+    <hasStudentMidiaPreference rdf:resource="#Video"/>
+    <hasLearningStyle rdf:resource="#LearningStyle_Active"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >X</ace_lexicon:PN_sg>
+    <hasActivity rdf:resource="#ActivityStationary"/>
+    <rdf:type rdf:resource="#Student"/>
+    <hasDevice>
+      <owl:NamedIndividual rdf:ID="iPad">
+        <Device_BatteryNivel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Bad</Device_BatteryNivel>
+        <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >tablet</DeviceType>
+        <rdf:type rdf:resource="#Device"/>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >iPad</ace_lexicon:PN_sg>
+        <DeviceNetConnection rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WiFi</DeviceNetConnection>
+      </owl:NamedIndividual>
+    </hasDevice>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="D">
+    <DeviceNetConnection rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WiFi</DeviceNetConnection>
+    <hasPlace>
+      <owl:NamedIndividual rdf:ID="atHome">
+        <rdf:type rdf:resource="#Place"/>
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >atHome</ace_lexicon:PN_sg>
+      </owl:NamedIndividual>
+    </hasPlace>
+    <rdf:type rdf:resource="#Student"/>
+    <hasDevice>
+      <owl:NamedIndividual rdf:ID="Desktop">
+        <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Desktop</ace_lexicon:PN_sg>
+        <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Desktop</DeviceType>
+        <rdf:type rdf:resource="#Device"/>
+      </owl:NamedIndividual>
+    </hasDevice>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >D</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="Keyword_DoWhile">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Keyword_DoWhile</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#Keyword"/>
+    <kw rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dowhile</kw>
+  </owl:NamedIndividual>
+  <MediaType rdf:ID="Document">
+    <CanSendToDesktop rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToDesktop>
+    <CanSendToPlayer rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >False</CanSendToPlayer>
+    <CanSendHighConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendHighConnections>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Document</ace_lexicon:PN_sg>
+    <CanSendLowBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendLowBattery>
+    <CanSendLowConnections rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendLowConnections>
+    <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pdf</MediaTypeFormats>
+    <CanSendToSmartphone rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToSmartphone>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <CanSendHighBattery rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendHighBattery>
+    <MediaTypeFormats rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >doc</MediaTypeFormats>
+    <CanSendToTablet rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >True</CanSendToTablet>
+  </MediaType>
+  <owl:NamedIndividual rdf:ID="LO_01">
+    <rdf:type rdf:resource="#LearningObject"/>
+    <hasKeyword rdf:resource="#Keyword_while"/>
+    <hasLOMediaType rdf:resource="#Video"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LO_01</ace_lexicon:PN_sg>
+    <hasLearningStyle rdf:resource="#LearningStyle_Active"/>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/device#DeviceMemory">
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceMemories</ace_lexicon:CN_pl>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >DeviceMemory</ace_lexicon:CN_sg>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Intuitive">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Intuitive</ace_lexicon:PN_sg>
+    <rdf:type rdf:resource="#LearningStyle"/>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/document#FileSizeUnit">
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeUnits</ace_lexicon:CN_pl>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >FileSizeUnit</ace_lexicon:CN_sg>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="iPadMini">
+    <rdf:type rdf:resource="#Device"/>
+    <DeviceType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tablet</DeviceType>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >iPadMini</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <rdf:Description rdf:about="http://daml.umbc.edu/ontologies/cobra/0.4/space-basic#SpatialThing">
+    <ace_lexicon:CN_pl rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SpatialThings</ace_lexicon:CN_pl>
+    <rdfs:subClassOf rdf:resource="#Context"/>
+    <ace_lexicon:CN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SpatialThing</ace_lexicon:CN_sg>
+  </rdf:Description>
+  <owl:NamedIndividual rdf:ID="atPark">
+    <rdf:type rdf:resource="#Place"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >atPark</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Reflective">
+    <hasMediaType rdf:resource="#eBooks"/>
+    <hasMediaType rdf:resource="#WebPages"/>
+    <rdf:type rdf:resource="#LearningStyle"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Reflective</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:ID="LearningStyle_Verbal">
+    <rdf:type rdf:resource="#LearningStyle"/>
+    <hasMediaType rdf:resource="#Video"/>
+    <hasMediaType rdf:resource="#Audio"/>
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Verbal</ace_lexicon:PN_sg>
+  </owl:NamedIndividual>
+  <LearningStyle rdf:ID="LearningStyle_Visual">
+    <ace_lexicon:PN_sg rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >LearningStyle_Visual</ace_lexicon:PN_sg>
+    <hasMediaType rdf:resource="#Presentations"/>
+    <hasMediaType rdf:resource="#Animations"/>
+    <hasMediaType rdf:resource="#Graphics"/>
+    <hasMediaType rdf:resource="#Video"/>
+    <hasMediaType rdf:resource="#Wikis"/>
+    <hasMediaType rdf:resource="#Simulations"/>
+    <hasMediaType rdf:resource="#Pictures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <hasMediaType rdf:resource="#SlideShow"/>
+  </LearningStyle>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
